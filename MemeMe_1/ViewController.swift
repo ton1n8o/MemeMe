@@ -12,8 +12,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var topLabel: UITextField!
+    @IBOutlet weak var bottomLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
