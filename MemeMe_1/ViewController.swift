@@ -19,12 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topLabel.text = "TOP"
-        topLabel.textAlignment = .center
-        topLabel.delegate = textFieldDelegate
-        bottomLabel.text = "BOTTOM"
-        bottomLabel.textAlignment = .center
-        bottomLabel.delegate = textFieldDelegate
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,30 +48,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // MARK: - Keyboard events
+    // MARK: - Helpers
     
-    @objc func keyboardWillShow(_ notification:Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
-    }
-    
-    @objc func keyboardWillHide(_ notification:Notification) {
-        view.frame.origin.y = 0
-    }
-    
-    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.cgRectValue.height
-    }
-    
-    func subscribeToKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-    }
-    
-    func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    private func setupUI() {
+        topLabel.text = "TOP"
+        topLabel.textAlignment = .center
+        topLabel.delegate = textFieldDelegate
+        bottomLabel.text = "BOTTOM"
+        bottomLabel.textAlignment = .center
+        bottomLabel.delegate = textFieldDelegate
+        
+        let memeTextAttributes: [String:Any] = [
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.strokeWidth.rawValue: -5
+        ]
+        
+        topLabel.defaultTextAttributes = memeTextAttributes
+        bottomLabel.defaultTextAttributes = memeTextAttributes
+        
     }
     
     // MARK: - UIImagePickerControllerDelegate
