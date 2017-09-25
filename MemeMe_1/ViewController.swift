@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topLabel: UITextField!
     @IBOutlet weak var bottomLabel: UITextField!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     let textFieldDelegate = TextFieldDelegate()
     
@@ -48,6 +49,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
+    // MARK: - Meme Creation
+    
+    func save() {
+        // Create the meme
+        let meme = Meme(topText: topLabel.text!,
+                        bottomText: bottomLabel.text!,
+                        originalImage: imageView.image!,
+                        memedImage: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return memedImage
+    }
+    
+    @IBAction func share(_ sender: Any) {
+        
+    }
+    
     // MARK: - Helpers
     
     private func setupUI() {
@@ -57,6 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomLabel.text = "BOTTOM"
         bottomLabel.textAlignment = .center
         bottomLabel.delegate = textFieldDelegate
+        shareButton.isEnabled = false
         
         let memeTextAttributes: [String:Any] = [
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
@@ -76,6 +103,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
         }
+        shareButton.isEnabled = imageView.image != nil
         dismiss(animated: true, completion: nil)
     }
     
