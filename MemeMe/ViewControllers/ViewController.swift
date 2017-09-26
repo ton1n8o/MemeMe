@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController {
+    
+    enum ImagePickerType {
+        case camera, library
+    }
     
     // MARK: - Outlets
     
@@ -48,18 +52,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - Meme Creation
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.sourceType = .photoLibrary
-        present(vc, animated: true, completion: nil)
+        showImagePickerFor(pickerSourceType: .photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        showImagePickerFor(pickerSourceType: .camera)
     }
     
     func save() {
@@ -72,8 +69,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         
-        navBar.alpha = 0
-        toolBar.alpha = 0
+        hideBars(true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -81,8 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        navBar.alpha = 1
-        toolBar.alpha = 1
+        hideBars(false)
         
         return memedImage
     }
@@ -123,18 +118,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         scrollView.maximumZoomScale = 5.0
     }
     
-    // MARK: - UIImagePickerControllerDelegate
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.image = image
-        }
-        shareButton.isEnabled = imageView.image != nil
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    private func hideBars(_ hide : Bool) {
+        navBar.isHidden = hide
+        toolBar.isHidden = hide
     }
     
 }
