@@ -10,13 +10,22 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topLabel: UITextField!
     @IBOutlet weak var bottomLabel: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    @IBOutlet weak var navBar: UIToolbar!
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    // MARK: - Variables
+    
     let textFieldDelegate = TextFieldDelegate()
+    
+    // MARK: - UIViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +43,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unsubscribeFromKeyboardNotifications()
     }
     
+    // MARK: - Meme Creation
+    
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
@@ -49,8 +60,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // MARK: - Meme Creation
-    
     func save() {
         // Create the meme
         let meme = Meme(topText: topLabel.text!,
@@ -61,17 +70,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         
+        navBar.alpha = 0
+        toolBar.alpha = 0
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
+        navBar.alpha = 1
+        toolBar.alpha = 1
+        
         return memedImage
     }
     
     @IBAction func share(_ sender: Any) {
-        
+        let image = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.present(controller, animated: true, completion: {
+            self.save()
+        })
     }
     
     // MARK: - Helpers

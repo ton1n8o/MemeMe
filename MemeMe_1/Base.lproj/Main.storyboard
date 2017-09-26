@@ -96,7 +96,9 @@
                         <outlet property="bottomLabel" destination="vlX-mF-5Wy" id="Dle-yP-c7j"/>
                         <outlet property="cameraButton" destination="cjD-2h-iqu" id="cju-KT-NxE"/>
                         <outlet property="imageView" destination="YHI-ei-0w4" id="foq-hA-m8C"/>
+                        <outlet property="navBar" destination="9VO-li-rG4" id="Vn7-Oh-qFt"/>
                         <outlet property="shareButton" destination="O78-kl-Bxf" id="jLV-zC-3YP"/>
+                        <outlet property="toolBar" destination="vyG-MH-EaB" id="bVu-Pr-bWg"/>
                         <outlet property="topLabel" destination="3X9-MW-1pS" id="qIq-hm-5lM"/>
                     </connections>
                 </viewController>
