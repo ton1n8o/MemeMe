@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MemeMe_1
+//  MemeMe
 //
 //  Created by Antonio da Silva on 22/09/2017.
 //  Copyright © 2017 TNTStudios. All rights reserved.
