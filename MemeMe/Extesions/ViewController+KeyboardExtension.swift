@@ -39,3 +39,10 @@ extension ViewController {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 }
+
+extension ViewController: UIScrollViewDelegate {
+    // MARK: - UIScrollViewDelegate
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+}

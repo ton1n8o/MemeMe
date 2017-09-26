@@ -12,6 +12,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Outlets
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topLabel: UITextField!
     @IBOutlet weak var bottomLabel: UITextField!
@@ -114,6 +116,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topLabel.defaultTextAttributes = memeTextAttributes
         bottomLabel.defaultTextAttributes = memeTextAttributes
         
+        // config zoom
+        scrollView.delegate = self
+        scrollView.zoomScale = 1.0
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 5.0
     }
     
     // MARK: - UIImagePickerControllerDelegate
