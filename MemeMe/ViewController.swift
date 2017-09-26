@@ -105,7 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareButton.isEnabled = false
         
         let memeTextAttributes: [String:Any] = [
-            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "Impact", size: 40)!,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.strokeWidth.rawValue: -5
