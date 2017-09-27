@@ -10,10 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    enum ImagePickerType {
-        case camera, library
-    }
-    
     // MARK: - Outlets
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -49,7 +45,7 @@ class ViewController: UIViewController {
         unsubscribeFromKeyboardNotifications()
     }
     
-    // MARK: - Meme Creation
+    // MARK: - Actions
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
         showImagePickerFor(pickerSourceType: .photoLibrary)
@@ -57,29 +53,6 @@ class ViewController: UIViewController {
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         showImagePickerFor(pickerSourceType: .camera)
-    }
-    
-    func save() {
-        // Create the meme
-        let meme = Meme(topText: topLabel.text!,
-                        bottomText: bottomLabel.text!,
-                        originalImage: imageView.image!,
-                        memedImage: generateMemedImage())
-    }
-    
-    func generateMemedImage() -> UIImage {
-        
-        hideBars(true)
-        
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        hideBars(false)
-        
-        return memedImage
     }
     
     @IBAction func share(_ sender: Any) {
@@ -116,11 +89,6 @@ class ViewController: UIViewController {
         scrollView.zoomScale = 1.0
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 5.0
-    }
-    
-    private func hideBars(_ hide : Bool) {
-        navBar.isHidden = hide
-        toolBar.isHidden = hide
     }
     
 }

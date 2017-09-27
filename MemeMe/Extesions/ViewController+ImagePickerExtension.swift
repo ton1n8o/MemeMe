@@ -24,11 +24,57 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Meme Creation
+    
+    func save() {
+        // Create the meme
+        let meme = Meme(topText: topLabel.text!,
+                        bottomText: bottomLabel.text!,
+                        originalImage: imageView.image!,
+                        memedImage: generateMemedImage())
+        
+        UIImageWriteToSavedPhotosAlbum(meme.memedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        hideBars(true)
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        hideBars(false)
+        
+        return memedImage
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
+    // MARK: - Helpers
+    
     func showImagePickerFor(pickerSourceType: UIImagePickerControllerSourceType) {
         let viewController = UIImagePickerController()
         viewController.delegate = self
         viewController.sourceType = pickerSourceType
         present(viewController, animated: true, completion: nil)
+    }
+    
+    private func hideBars(_ hide : Bool) {
+        navBar.isHidden = hide
+        toolBar.isHidden = hide
     }
     
 }

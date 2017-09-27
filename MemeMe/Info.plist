@@ -2,16 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>impact.ttf</string>
-	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please enable this app to save your beautiful Meme.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Well, you know ... we need a picture in order to create a Meme.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Hey! May I use your camera?!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -30,12 +20,26 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Hey! May I use your camera?!</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please enable this app to save your beautiful Meme.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Well, you know ... we need a picture in order to create a Meme.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>impact.ttf</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
