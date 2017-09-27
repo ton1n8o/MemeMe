@@ -80,6 +80,12 @@
                                             <action selector="share:" destination="BYZ-38-t0r" id="3Yn-pK-j8g"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QST-KQ-Ng1"/>
+                                    <barButtonItem title="Choose Font" id="IgK-mk-ByQ">
+                                        <connections>
+                                            <segue destination="jpD-wc-jut" kind="show" id="HbA-08-8TL"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -124,7 +130,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="-248"/>
+            <point key="canvasLocation" x="568" y="-240"/>
+        </scene>
+        <!--Fonts Table View Controller-->
+        <scene sceneID="oN4-25-X1v">
+            <objects>
+                <tableViewController id="jpD-wc-jut" customClass="FontsTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DhY-XW-cO1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fontCell" id="NQ8-dD-r04">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NQ8-dD-r04" id="eRd-DB-s5p">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jpD-wc-jut" id="9Lm-nL-qVg"/>
+                            <outlet property="delegate" destination="jpD-wc-jut" id="dNR-Dj-tSA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wHH-pk-rfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486" y="-240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n1q-sL-n6s">

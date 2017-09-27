@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FontSelectedDelegate {
     
     // MARK: - Outlets
     
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     // MARK: - Variables
     
     let textFieldDelegate = TextFieldDelegate()
+    var fontSelected: String = "Impact"
     
     // MARK: - UIViewController lifecycle
     
@@ -63,32 +64,55 @@ class ViewController: UIViewController {
         })
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FontsTableViewController {
+            vc.delegate = self
+        }
+    }
+    
     // MARK: - Helpers
     
     private func setupUI() {
+        
+        shareButton.isEnabled = false
+        
         topLabel.text = "TOP"
         topLabel.textAlignment = .center
         topLabel.delegate = textFieldDelegate
         bottomLabel.text = "BOTTOM"
         bottomLabel.textAlignment = .center
         bottomLabel.delegate = textFieldDelegate
-        shareButton.isEnabled = false
         
-        let memeTextAttributes: [String:Any] = [
-            NSAttributedStringKey.font.rawValue: UIFont(name: "Impact", size: 40)!,
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
-            NSAttributedStringKey.strokeWidth.rawValue: -5
-        ]
-        
-        topLabel.defaultTextAttributes = memeTextAttributes
-        bottomLabel.defaultTextAttributes = memeTextAttributes
+        updateCurrentFontSelected()
         
         // config zoom
         scrollView.delegate = self
         scrollView.zoomScale = 1.0
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 5.0
+    }
+    
+    private func updateCurrentFontSelected() {
+        topLabel.defaultTextAttributes = attributedTextForFont(fontSelected)
+        bottomLabel.defaultTextAttributes = attributedTextForFont(fontSelected)
+    }
+    
+    private func attributedTextForFont(_ font: String) -> [String:Any] {
+        return [
+            NSAttributedStringKey.font.rawValue: UIFont(name: font, size: 40)!,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.strokeWidth.rawValue: -5
+        ]
+    }
+    
+    // MARK: - FontSelectedDelegate
+    
+    func didSelectFont(withName: String) {
+        fontSelected = withName
+        updateCurrentFontSelected()
     }
     
 }
