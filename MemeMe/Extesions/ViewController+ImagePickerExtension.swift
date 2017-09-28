@@ -13,7 +13,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.image = image
         }
         shareButton.isEnabled = imageView.image != nil
@@ -69,6 +69,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func showImagePickerFor(pickerSourceType: UIImagePickerControllerSourceType) {
         let viewController = UIImagePickerController()
         viewController.delegate = self
+        viewController.allowsEditing = true
         viewController.sourceType = pickerSourceType
         present(viewController, animated: true, completion: nil)
     }

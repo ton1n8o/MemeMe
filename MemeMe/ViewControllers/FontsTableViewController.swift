@@ -14,8 +14,12 @@ protocol FontSelectedDelegate: class {
 
 class FontsTableViewController: UITableViewController {
     
+    // MARK: - Variables
+    
     weak var delegate: FontSelectedDelegate?
     var fontNames = [String]()
+    
+    // MARK: - UIViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +31,6 @@ class FontsTableViewController: UITableViewController {
         fontNames = fontNames.sorted()
         tableView.reloadData()
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -52,7 +51,16 @@ class FontsTableViewController: UITableViewController {
         return cell
     }
     
-    func attributedTextForFontType(_ font: String) -> [NSAttributedStringKey:Any] {
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectFont(withName: fontNames[indexPath.row])
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Helpers
+    
+    private func attributedTextForFontType(_ font: String) -> [NSAttributedStringKey:Any] {
         return [
             NSAttributedStringKey.font: UIFont(name: font, size: 20)!,
             NSAttributedStringKey.foregroundColor: UIColor.white,
@@ -61,9 +69,4 @@ class FontsTableViewController: UITableViewController {
         ]
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectFont(withName: fontNames[indexPath.row])
-        navigationController?.popViewController(animated: true)
-    }
-
 }

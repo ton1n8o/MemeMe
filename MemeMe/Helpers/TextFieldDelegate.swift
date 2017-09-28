@@ -11,6 +11,7 @@ import UIKit
 
 class TextFieldDelegate: NSObject, UITextFieldDelegate {
     
+    // with this variable we store the current text typed
     var tmpText = ""
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -26,7 +26,7 @@ class ViewController: UIViewController, FontSelectedDelegate {
     // MARK: - Variables
     
     let textFieldDelegate = TextFieldDelegate()
-    var fontSelected: String = "Impact"
+    var fontSelected: String = "Impact" // Default font
     
     // MARK: - UIViewController lifecycle
     
