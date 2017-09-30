@@ -57,12 +57,20 @@ class ViewController: UIViewController, FontSelectedDelegate {
     }
     
     @IBAction func share(_ sender: Any) {
-        let image = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        let meme = buildMemeObject()
+        
+        if meme.topText.isEmpty && meme.bottomText.isEmpty {
+            let message = "Your Meme should have at least one label message filled in."
+            showInfo(withMessage: message)
+            return
+        }
+        
+        let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         
         controller.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
             if completed && activityType == .saveToCameraRoll {
-                self.save()
+                self.showInfo(withMessage: "Meme saved with success!")
             }
         }
         
@@ -79,20 +87,12 @@ class ViewController: UIViewController, FontSelectedDelegate {
     
     // MARK: - Helpers
     
-    func save() {
+    private func buildMemeObject() -> Meme {
         // Create the meme
-        let meme = Meme(topText: topLabel.text!,
-                        bottomText: bottomLabel.text!,
-                        originalImage: imageView.image!,
-                        memedImage: generateMemedImage())
-        
-        if meme.topText.isEmpty && meme.bottomText.isEmpty {
-            // alert
-            return
-        }
-        
-        // save operation
-        
+        return Meme(topText: topLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                    bottomText: bottomLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines),
+                    originalImage: imageView.image!,
+                    memedImage: generateMemedImage())
     }
     
     private func setupUI() {
@@ -129,6 +129,12 @@ class ViewController: UIViewController, FontSelectedDelegate {
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.strokeWidth.rawValue: -5
         ]
+    }
+    
+    private func showInfo(withTitle: String = "Info", withMessage: String) {
+        let ac = UIAlertController(title: withTitle, message: withMessage, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     // MARK: - FontSelectedDelegate
