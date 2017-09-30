@@ -99,12 +99,8 @@ class ViewController: UIViewController, FontSelectedDelegate {
         
         shareButton.isEnabled = false
         
-        topLabel.text = "TOP"
-        topLabel.textAlignment = .center
-        topLabel.delegate = textFieldDelegate
-        bottomLabel.text = "BOTTOM"
-        bottomLabel.textAlignment = .center
-        bottomLabel.delegate = textFieldDelegate
+        configure(textField: topLabel, withText: "TOP")
+        configure(textField: bottomLabel, withText: "BOTTOM")
         
         updateCurrentFontSelected()
         
@@ -113,6 +109,12 @@ class ViewController: UIViewController, FontSelectedDelegate {
         scrollView.zoomScale = 1.0
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 5.0
+    }
+    
+    private func configure (textField: UITextField, withText: String) {
+        textField.text = withText
+        textField.textAlignment = .center
+        textField.delegate = textFieldDelegate
     }
     
     private func updateCurrentFontSelected() {
