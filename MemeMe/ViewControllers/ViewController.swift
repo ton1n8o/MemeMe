@@ -59,9 +59,14 @@ class ViewController: UIViewController, FontSelectedDelegate {
     @IBAction func share(_ sender: Any) {
         let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        self.present(controller, animated: true, completion: {
-            self.save()
-        })
+        
+        controller.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+            if completed && activityType == .saveToCameraRoll {
+                self.save()
+            }
+        }
+        
+        self.present(controller, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -73,6 +78,22 @@ class ViewController: UIViewController, FontSelectedDelegate {
     }
     
     // MARK: - Helpers
+    
+    func save() {
+        // Create the meme
+        let meme = Meme(topText: topLabel.text!,
+                        bottomText: bottomLabel.text!,
+                        originalImage: imageView.image!,
+                        memedImage: generateMemedImage())
+        
+        if meme.topText.isEmpty && meme.bottomText.isEmpty {
+            // alert
+            return
+        }
+        
+        // save operation
+        
+    }
     
     private func setupUI() {
         

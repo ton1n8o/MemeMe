@@ -26,16 +26,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     // MARK: - Meme Creation
     
-    func save() {
-        // Create the meme
-        let meme = Meme(topText: topLabel.text!,
-                        bottomText: bottomLabel.text!,
-                        originalImage: imageView.image!,
-                        memedImage: generateMemedImage())
-        
-        UIImageWriteToSavedPhotosAlbum(meme.memedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-    }
-    
     func generateMemedImage() -> UIImage {
         
         hideBars(true)
@@ -49,19 +39,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         hideBars(false)
         
         return memedImage
-    }
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        let title = error != nil ? "Save error" : "Saved!"
-        var message = "Your Meme image has been saved to your photos."
-        
-        if let error = error {
-           message = error.localizedDescription
-        }
-        
-        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
     }
     
     // MARK: - Helpers
