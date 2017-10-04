@@ -67,7 +67,7 @@ class ViewController: UIViewController, FontSelectedDelegate {
         }
         // let's store our Meme object
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+            appDelegate.memes.append(meme)
         
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         
@@ -93,6 +93,10 @@ class ViewController: UIViewController, FontSelectedDelegate {
     }
     
     // MARK: - Helpers
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     private func buildMemeObject() -> Meme {
         // Create the meme
