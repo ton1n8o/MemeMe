@@ -65,6 +65,9 @@ class ViewController: UIViewController, FontSelectedDelegate {
             showInfo(withMessage: message)
             return
         }
+        // let's store our Meme object
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
         
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         
@@ -74,7 +77,11 @@ class ViewController: UIViewController, FontSelectedDelegate {
             }
         }
         
-        self.present(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func dismissView(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation
