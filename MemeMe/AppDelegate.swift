@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         for i in 0..<50 {
-            let m = Meme(topText: "text\(i)", bottomText: "bottom\(i)", originalImage: UIImage.init(named: "MockMeme")!, memedImage: UIImage.init(named: "MockMeme")!)
+            let m = Meme(topText: "text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)text\(i)", bottomText: "bottom\(i)", originalImage: UIImage.init(named: "MockMeme")!, memedImage: UIImage.init(named: "MockMeme")!)
             memes.append(m)
         }
         
@@ -29,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension UIViewController {
     var memes: [Meme] {
-        return memes
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.memes
     }
 }
 

@@ -10,6 +10,7 @@
 		7419C3E61F75FC220062981C /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419C3E51F75FC220062981C /* TextFieldDelegate.swift */; };
 		7449A04F1F79E4FB00F46AF8 /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7449A04E1F79E4FB00F46AF8 /* impact.ttf */; };
 		7449A0501F79E54700F46AF8 /* impact.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 7449A04E1F79E4FB00F46AF8 /* impact.ttf */; };
+		746065761F8657BC0071B75F /* MemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746065751F8657BC0071B75F /* MemeTableViewCell.swift */; };
 		7475B3631F7A978C00B7E1A8 /* ViewController+ImagePickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7475B3621F7A978C00B7E1A8 /* ViewController+ImagePickerExtension.swift */; };
 		7492073B1F76070500EA84E3 /* ViewController+KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7492073A1F76070500EA84E3 /* ViewController+KeyboardExtension.swift */; };
 		74D168CB1F7B359C00627529 /* FontsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D168CA1F7B359C00627529 /* FontsTableViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		7419C3E51F75FC220062981C /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		7449A04E1F79E4FB00F46AF8 /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
+		746065751F8657BC0071B75F /* MemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewCell.swift; sourceTree = "<group>"; };
 		7475B3621F7A978C00B7E1A8 /* ViewController+ImagePickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ImagePickerExtension.swift"; sourceTree = "<group>"; };
 		7492073A1F76070500EA84E3 /* ViewController+KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardExtension.swift"; sourceTree = "<group>"; };
 		74D168CA1F7B359C00627529 /* FontsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsTableViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				74E1AC4D1F85024B00C224A2 /* MemeCollectionViewCell.swift */,
+				746065751F8657BC0071B75F /* MemeTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				74E1AC491F84FC7B00C224A2 /* SentMemesTableViewController.swift in Sources */,
 				7492073B1F76070500EA84E3 /* ViewController+KeyboardExtension.swift in Sources */,
 				74EED5121F7494F50087B6BC /* ViewController.swift in Sources */,
+				746065761F8657BC0071B75F /* MemeTableViewCell.swift in Sources */,
 				74EED5101F7494F50087B6BC /* AppDelegate.swift in Sources */,
 				74D569C71F78958D0039F861 /* Meme.swift in Sources */,
 			);
