@@ -44,6 +44,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showDetailViewWith(memes[indexPath.item])
+    }
+    
     // MARK: - Helpers
     
     private func updateFlowLayout(_ withSize: CGSize) {

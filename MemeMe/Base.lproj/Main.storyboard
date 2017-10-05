@@ -279,6 +279,35 @@
             </objects>
             <point key="canvasLocation" x="-243" y="-964"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="DXM-3g-PwB">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="Qo6-vW-62C" customClass="DetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T25-Z8-Eyz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VNb-DH-kpw">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TNh-lS-biZ" firstAttribute="trailing" secondItem="VNb-DH-kpw" secondAttribute="trailing" id="M6M-Oj-a5v"/>
+                            <constraint firstItem="VNb-DH-kpw" firstAttribute="leading" secondItem="TNh-lS-biZ" secondAttribute="leading" id="OUT-fB-iam"/>
+                            <constraint firstItem="VNb-DH-kpw" firstAttribute="top" secondItem="TNh-lS-biZ" secondAttribute="top" id="cby-V2-DCI"/>
+                            <constraint firstItem="TNh-lS-biZ" firstAttribute="bottom" secondItem="VNb-DH-kpw" secondAttribute="bottom" id="qBE-ci-S3k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TNh-lS-biZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="memeImage" destination="VNb-DH-kpw" id="76a-LM-RqS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuW-nq-IFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1014" y="-33"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Xb9-eD-W1P">
             <objects>
@@ -312,7 +341,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0m-hE-vDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2588" y="-31"/>
+            <point key="canvasLocation" x="-2588" y="-33"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="xf4-KV-4Bl">
@@ -390,7 +419,7 @@
                     </connections>
                 </collectionViewCell>
             </objects>
-            <point key="canvasLocation" x="-1814" y="-32"/>
+            <point key="canvasLocation" x="-1814" y="-33"/>
         </scene>
     </scenes>
     <resources>
