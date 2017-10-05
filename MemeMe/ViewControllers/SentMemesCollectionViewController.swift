@@ -12,12 +12,11 @@ private let reuseIdentifier = "memeItemCell"
 
 class SentMemesCollectionViewController: UICollectionViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    var memes: [Meme] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.memes
-    }
+    // MARK: - UICollectionViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()

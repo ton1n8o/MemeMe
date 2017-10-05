@@ -27,3 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIViewController {
+    var memes: [Meme] {
+        return memes
+    }
+}
+

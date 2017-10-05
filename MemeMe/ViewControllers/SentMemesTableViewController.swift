@@ -10,11 +10,6 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
-    var memes: [Meme] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.memes
-    }
-    
     // MARK: - UITableViewController lifecycle
 
     override func viewDidLoad() {
