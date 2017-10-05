@@ -244,7 +244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D7s-Sm-rXh">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fontCell" id="Rsu-ZE-CgB">
@@ -261,11 +261,28 @@
                                     <outlet property="delegate" destination="Apb-xS-wbp" id="6CY-0C-MNX"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yc8-Hl-qDN">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JaR-4d-26i"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3lo-h7-CPP"/>
+                                    <barButtonItem systemItem="cancel" id="yrV-5M-wyM">
+                                        <connections>
+                                            <action selector="cancel:" destination="Apb-xS-wbp" id="fZE-B2-KR8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vgP-fy-wo9" firstAttribute="trailing" secondItem="D7s-Sm-rXh" secondAttribute="trailing" id="2FU-tu-zre"/>
-                            <constraint firstItem="D7s-Sm-rXh" firstAttribute="top" secondItem="vgP-fy-wo9" secondAttribute="top" id="mB6-dF-Zsj"/>
+                            <constraint firstItem="Yc8-Hl-qDN" firstAttribute="top" secondItem="3Ta-jN-BcR" secondAttribute="top" constant="20" id="7cq-Fp-GzC"/>
+                            <constraint firstItem="Yc8-Hl-qDN" firstAttribute="leading" secondItem="vgP-fy-wo9" secondAttribute="leading" id="B9j-V8-UYz"/>
+                            <constraint firstItem="D7s-Sm-rXh" firstAttribute="top" secondItem="Yc8-Hl-qDN" secondAttribute="bottom" id="gN5-Gk-F9h"/>
+                            <constraint firstAttribute="trailing" secondItem="Yc8-Hl-qDN" secondAttribute="trailing" id="pmU-fh-087"/>
                             <constraint firstItem="D7s-Sm-rXh" firstAttribute="leading" secondItem="vgP-fy-wo9" secondAttribute="leading" id="udd-uS-0tZ"/>
                             <constraint firstItem="vgP-fy-wo9" firstAttribute="bottom" secondItem="D7s-Sm-rXh" secondAttribute="bottom" id="zGC-cv-Z5z"/>
                         </constraints>
@@ -277,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smS-eN-8Us" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-243" y="-964"/>
+            <point key="canvasLocation" x="-243.47826086956525" y="-964.4021739130435"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="DXM-3g-PwB">
