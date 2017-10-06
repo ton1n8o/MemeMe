@@ -120,6 +120,11 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YHI-ei-0w4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7wm-vb-ThX" customClass="DraggableView" customModule="MemeMe" customModuleProvider="target">
+                                        <rect key="frame" x="153" y="195" width="147" height="115"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YHI-ei-0w4" secondAttribute="trailing" id="6KB-jj-Pa3"/>
@@ -229,11 +234,12 @@
                         <outlet property="shareButton" destination="O78-kl-Bxf" id="jLV-zC-3YP"/>
                         <outlet property="toolBar" destination="vyG-MH-EaB" id="bVu-Pr-bWg"/>
                         <outlet property="topLabel" destination="3X9-MW-1pS" id="qIq-hm-5lM"/>
+                        <outlet property="viewLabelTop" destination="7wm-vb-ThX" id="t5k-4R-Khc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1014" y="-964"/>
+            <point key="canvasLocation" x="-1014.4927536231885" y="-964.4021739130435"/>
         </scene>
         <!--Fonts Table View Controller-->
         <scene sceneID="9t1-YF-ki8">
