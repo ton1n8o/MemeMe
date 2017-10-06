@@ -10,9 +10,18 @@
 import UIKit
 
 extension UIViewController {
+    
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     var memes: [Meme] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.memes
+        get {
+            return appDelegate.memes
+        }
+        set {
+            appDelegate.memes = newValue
+        }
     }
     
     func showDetailViewWith(_ meme: Meme) {
