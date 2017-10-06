@@ -14,7 +14,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout?
     
     // MARK: - UICollectionViewController lifecycle
 
@@ -60,9 +60,9 @@ class SentMemesCollectionViewController: UICollectionViewController {
         // (total width - space gaps) / the remainder divided by the number of items presented
         let dimension = (withSize.width - ((items - 1) * space)) / items
         
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        flowLayout?.minimumInteritemSpacing = space
+        flowLayout?.minimumLineSpacing = space
+        flowLayout?.itemSize = CGSize(width: dimension, height: dimension)
     }
 
 }

@@ -20,7 +20,8 @@ class ViewController: UIViewController, FontSelectedDelegate {
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-    @IBOutlet weak var viewLabelTop: DraggableView!
+    @IBOutlet weak var draggableViewLabelTop: DraggableView!
+    @IBOutlet weak var draggableViewLabelBottom: DraggableView!
     
     @IBOutlet weak var navBar: UIToolbar!
     @IBOutlet weak var toolBar: UIToolbar!
