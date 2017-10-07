@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     // MARK: - UIImagePickerControllerDelegate
     

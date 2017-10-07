@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension ViewController {
+extension MemeEditorVC {
     
     // MARK: - Keyboard events
     
@@ -40,7 +40,7 @@ extension ViewController {
     }
 }
 
-extension ViewController: UIScrollViewDelegate {
+extension MemeEditorVC: UIScrollViewDelegate {
     // MARK: - UIScrollViewDelegate
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView

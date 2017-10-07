@@ -14,10 +14,6 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var memeImage: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let meme = meme {

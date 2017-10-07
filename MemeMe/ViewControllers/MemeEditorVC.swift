@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, FontSelectedDelegate {
+class MemeEditorVC: UIViewController, FontSelectedDelegate {
     
     // MARK: - Outlets
     
