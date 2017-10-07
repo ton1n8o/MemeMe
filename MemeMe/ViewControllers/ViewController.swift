@@ -69,8 +69,7 @@ class ViewController: UIViewController, FontSelectedDelegate {
             return
         }
         // let's store our Meme object
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.memes.append(meme)
+        memes.append(meme)
         
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         
